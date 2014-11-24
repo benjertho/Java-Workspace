@@ -83,30 +83,23 @@ public class Floor {
 	
 	public boolean checkRectClear(int startRow, int startColumn, int width, int height){
 		if ((width > 1) && (height > 1) && (startRow + height < this.rowCount) && (startColumn + width < this.columnCount)){
-			if (startRow + height < this.rowCount){
-				height++;
-			}
-			if (startColumn + width < this.columnCount){
-				width++;
-			}
 			if (startRow > 0){
-				height++;
 				startRow--;
 			}
 			if (startColumn > 0){
-				width++;
 				startColumn--;
 			}
-			
+			if (startRow + wi> 0){
+				startRow--;
+			}
 			for (int i = startRow; i < startRow + height; i++){
 				for (int j = startColumn; i < startColumn + width; i++){
-					if (this.floorGrid[i][j] == true){
-						return false;
-					}
+					this.floorGrid[i][j] = true;
 				}
 			}
 		}
-		return true;
+		
+		return clear;
 	}
 }
 	
