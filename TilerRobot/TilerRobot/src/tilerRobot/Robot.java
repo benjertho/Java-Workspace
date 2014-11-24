@@ -61,9 +61,9 @@ public class Robot {
 		
 		currentFloor = new Floor(floorWidth, floorLength);
 		
-		currentFloor.colorTileRect(2, 2, 3, 3);
+		currentFloor.colorTileRect(1, 1, 2, 2);
 		
-		currentFloor.colorTile(0, 0, currentFloor.black);
+		currentFloor.colorTile(5, 5, currentFloor.black);
 		
 		columnTileCount = currentFloor.getColumnTileCount();
 		rowTileCount = currentFloor.getRowTileCount();
@@ -78,7 +78,9 @@ public class Robot {
 		
 		System.out.println("total number of black tiles: " + currentFloor.getTileCount());
 		
-		System.out.println("tried fitting 2x2 @ 2,2 coords: " + currentFloor.checkRectClear(2, 2, 2, 2));
+		System.out.println("tried fitting 2x2 @ 10,10 coords: " + currentFloor.checkRectClear(8, 8, 2, 4));
+		
+		System.out.println("rectangle conditions are met: " + currentFloor.checkRectangleViolation());
 		
 		myInputScanner.close();
 	}
