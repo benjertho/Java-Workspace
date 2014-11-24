@@ -1,0 +1,211 @@
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+%\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+%\usepackage{amsmath,amsfonts,amsthm} % Math packages
+%\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{mathptmx}
+\usepackage{amsmath} % Table functionality, among others
+\usepackage{sectsty} % Allows customizing section commands
+\usepackage{placeins} % keeps floats (e.g. Tables) within "\FloatBarrier" boundaries
+\allsectionsfont{\centering \normalfont} % Make all sections centered, the default font and small caps
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+%\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+%\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\title{	
+\normalfont \normalsize 
+\textsc{Hochschule Bonn-Rhein-Sieg} \\ [10pt] % Your university, school and/or department name(s)
+\textsc{Advanced Software Technology} \\ [10pt]
+\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+\huge  Exercise 4 \\ % The assignment title
+\horrule{2pt} \\ % Thick bottom horizontal rule
+}
+
+\author{Benjamin Thompson} % Your name
+
+\date{\normalsize\ 24 November 2014} % Today's date or a custom date
+
+\begin{document}
+
+\maketitle % Print the title
+
+%----------------------------------------------------------------------------------------
+%With This template you can add code, image and sections. 
+%----------------------------------------------------------------------------------------
+\section{Exercise 13: The Confused Tiler Robot Problem}
+
+\subsection{Draw a picture to illustrate the initial problem situation}
+\begin{table}[!th]
+\centering
+\begin{tabular}{c||c|c|c|c|c|c|c|c|c|c|}
+\hline
+7 &&&&&&&&&& \\
+\hline
+7 &&&&&&&&&& \\
+\hline
+7 &&&&&&&&&& \\
+\hline
+4&&&&&&&&&& \\
+\hline
+4&&&&&&&&&& \\
+\hline
+6&&&&&&&&&&\\
+\hline
+2&&&&&&&&&&\\
+\hline
+8&&&&&&&&&&\\
+\hline
+6&&&&&&&&&&\\
+\hline
+2&&&&&&&&&&\\
+\hline
+\hline
+&3&7&4&6&6&2&7&5&8&5
+\end{tabular}
+\caption{Grid with row and column constraints}
+\label{ex:table}
+\end{table}
+\subsection{How can you describe a possible solution?}
+\begin{table}[!th]
+\centering
+\begin{tabular}{c||c|c|c|c|c|c|c|c|c|c|}
+\hline
+7 & x & x & x & x & x & x & x &&& \\
+\hline
+7 & x & x & x & x & x & x & x &&& \\
+\hline
+7 & x & x & x & x & x & x & x &&& \\
+\hline
+4 & x & x & x & x &&&&&& \\
+\hline
+4 & x & x & x & x &&&&&& \\
+\hline
+6&x&x&x&x&x&x&&&&\\
+\hline
+2&x&x&&&&&&&&\\
+\hline
+8&x&x&x&x&x&x&x&x&&\\
+\hline
+6&x&x&x&x&x&x&&&&\\
+\hline
+2&x&x&&&&&&&&\\
+\hline
+\end{tabular}
+\caption{Row constraints visualized}
+\label{ex:table}
+\end{table}
+
+\FloatBarrier
+
+\begin{table}[!th]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+&&&&&&&&& \\
+\hline
+&&&&&&&&& \\
+\hline
+&&&&&&&&x& \\
+\hline
+&x&&&&&x&&x& \\
+\hline
+&x&&x&x&&x&&x& \\
+\hline
+&x&&x&x&&x&x&x&x \\
+\hline
+&x&x&x&x&&x&x&x&x \\
+\hline
+x&x&x&x&x&&x&x&x&x \\
+\hline
+x&x&x&x&x&x&x&x&x&x \\
+\hline
+x&x&x&x&x&x&x&x&x&x \\
+\hline
+\hline
+3&7&4&6&6&2&7&5&8&5
+
+\end{tabular}
+\caption{Column constraints visualized}
+\label{ex:table}
+\end{table}
+
+\FloatBarrier
+
+
+\subsection{Try to manually solve the problem with a "hand-on"/guessing approach. Could you solve the problem in less than 10 minutes?}
+\raggedright
+We first tried to consolidate the two graphs that had the correct distributions in the columns and rows, but this proved to be too difficult. 
+\FloatBarrier
+\begin{table}[!th]
+\centering
+\begin{tabular}{c||c|c|c|c|c|c|c|c|c|c|}
+\hline
+7 & 21&  49&  28&  42&  42&  14&  49&  35&  56&  35 \\
+\hline
+7 & 21&  49&  28&  42&  42&  14&  49&  35&  56&  35 \\
+\hline
+7 & 21&  49&  28&  42&  42&  14&  49&  35&  56&  35 \\
+\hline
+4 & 12&  28&  16&  24&  24&   8&  28&  20&  32&  20 \\
+\hline
+4 & 12&  28&  16&  24&  24&   8&  28&  20&  32&  20 \\
+\hline
+6 & 18&  42&  24&  36&  36&  12&  42&  30&  48&  30\\
+\hline
+2  &  6&  14&   8&  12&  12&   4&  14&  10&  16&  10\\
+\hline
+8  & 24&  56&  32&  48&  48&  16&  56&  40&  64&  40\\
+\hline
+6  & 18&  42&  24&  36&  36&  12&  42&  30&  48&  30\\
+\hline
+2 &  6&  14&   8&  12&  12&   4&  14&  10&  16&  10\\
+\hline
+\hline
+&3&7&4&6&6&2&7&5&8&5
+\end{tabular}
+\caption{Grid showing weights}
+\label{ex:table}
+\end{table}
+\FloatBarrier
+We then approached the problem by multiplying the rows and columns to give a weight to each tile in the grid. The higher the weight, the more likely that it would be black. We then proceeded to color in the tiles that were highest until all the 53 had been used. This approach did not satify the puzzle that well. The sum of discrepancies between the colored tiles and the intended number of tiles in rows and columns was 26, which will result in at minimum 13 swaps in oder to produce a solution. This almost a quarter of the tiles and the puzzle was not close enough to determine a solution within the given ten minutes.
+
+\subsection{If you succeeded in solving the problem, reflect on your solution approach and try to write it down as some variation of pseudocode. Is the approach generalizable and suitable for implementation in software?}
+
+We were not able to solve the problem with our approaches
+\subsection{If you could not solve the problem by hand, try to think of a way how you (and later the computer) could generate possible solutions systematically and then check whether they satisfy all conditions or not.}
+
+Although we did not succeed in solving the puzzle, a good approach might be to start with either the columns or row conditions satisfied, and create a search tree that checked for tile placement states starting with the heavily-weighted tiles.
+
+\subsection{Assuming that, no matter what approach you have decided for, the algorithm will requiresome searching for a solution, determine the size of the search space and describe a systematic method of enumerating all possibilities you have to test. Is it reasonable to expect good runtime performance from a software implementation?}
+
+The suggested approach in the previous section will have a state space size of 
+$$\sum_{i=1}^{m}\frac{n!}{(n-r_i)! \cdot r_i!} = \sum_{i=1}^{10}\frac{10!}{(10-r_i)! \cdot r_i!} = 1335$$
+where $m$ is the number of rows, $n$ is the number of columns, and $r$ is the number of black tiles per row. This is a trivial search space and a good runtime performance should be expected.
+
+\subsection{Reflect on your current approach and the problem and check, whether you are already exploiting all information and knowledge that is provided in the problem description. If this is not the case, think of possibilities how you could use this knowledge to improve your algorithm.}
+
+We believe that  we have exploited all the knowledge provided by the prompt in creating a solving algorithm for this problem.
+
+
+
+\end{document}
