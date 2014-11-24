@@ -80,7 +80,7 @@ public class Robot {
 		
 		System.out.println("tried fitting 2x2 @ 10,10 coords: " + currentFloor.checkRectClear(8, 8, 2, 4));
 		
-		System.out.println("rectangle conditions are met: " + currentFloor.checkRectanglesCorrect());
+		System.out.println("rectangle conditions are met: " + currentFloor.checkRectangleViolation());
 		
 		myInputScanner.close();
 	}

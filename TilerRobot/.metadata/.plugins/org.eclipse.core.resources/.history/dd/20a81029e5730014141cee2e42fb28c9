@@ -87,7 +87,7 @@ public class Floor {
 		return tileCount;
 	}
 
-	public boolean checkRectanglesCorrect(){
+	public boolean checkCorrectRectangles(){
 		for (int i = 0; i < this.rowCount; i++){
 			for (int j = 0; j < this.columnCount; j++){
 				if (this.floorGrid[i][j]){
