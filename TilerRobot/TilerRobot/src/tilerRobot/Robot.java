@@ -61,8 +61,18 @@ public class Robot {
 		
 		currentFloor = new Floor(floorWidth, floorLength);
 		
+		currentFloor.colorTileRect(2, 2, 3, 3);
+		
 		columnTileCount = currentFloor.getColumnTileCount();
 		rowTileCount = currentFloor.getRowTileCount();
+		
+		for(int i = 0; i < floorWidth; i++) {
+			System.out.println("black tiles in row " + i + " = " + rowTileCount[i] + " ");
+		}
+		
+		for(int i = 0; i < floorLength; i++) {
+			System.out.println("black tiles in column " + i + " = " + columnTileCount[i] + " ");
+		}
 		
 		myInputScanner.close();
 	}

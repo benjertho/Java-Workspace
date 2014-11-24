@@ -38,7 +38,7 @@ public class Floor {
 	public void colorTileRect(int startRow, int startColumn, int width, int height){
 		if ((width > 1) && (height > 1) && (startRow + height < this.rowCount) && (startColumn + width < this.columnCount)){
 			for (int i = startRow; i < startRow + height; i++){
-				for (int j = startColumn; i < startColumn + width; i++){
+				for (int j = startColumn; j < startColumn + width; j++){
 					this.floorGrid[i][j] = true;
 				}
 			}
