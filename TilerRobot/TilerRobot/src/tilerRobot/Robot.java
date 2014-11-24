@@ -7,7 +7,7 @@ public class Robot {
 	static int NOT_INTEGRAL_VALUE_ERROR = -1;
 	static int IO_ERROR = -2;
 	
-	private int getIntegralValue(Scanner myInputScanner) {
+	private static int getIntegralValue(Scanner myInputScanner) {
 		int inputValue = 0;
 		boolean isIntegral = false;
 		char proceedUserAnswer = 'Q';
@@ -55,9 +55,9 @@ public class Robot {
 		Scanner myInputScanner = new Scanner(System.in);
 		System.out.println("Welcome to the tiling robot");
 		System.out.println("Please enter floor M size below:");
-		floorWidth = myInputScanner.nextInt();
+		floorWidth = getIntegralValue(myInputScanner);
 		System.out.println("Please enter floor N size below:");
-		floorLength = myInputScanner.nextInt();
+		floorLength = getIntegralValue(myInputScanner);
 		
 		currentFloor = new Floor(floorWidth, floorLength);
 		
@@ -75,6 +75,8 @@ public class Robot {
 		for(int i = 0; i < floorLength; i++) {
 			System.out.println("black tiles in column " + i + " = " + columnTileCount[i] + " ");
 		}
+		
+		System.out.println("total number of black tiles: " + currentFloor.getTileCount());
 		
 		myInputScanner.close();
 	}
