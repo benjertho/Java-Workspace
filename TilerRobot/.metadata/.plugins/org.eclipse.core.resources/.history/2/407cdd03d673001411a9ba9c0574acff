@@ -93,7 +93,6 @@ public class Floor {
 				height++;
 				startRow--;
 			}
-			
 			if (startColumn > 0){
 				width++;
 				startColumn--;
