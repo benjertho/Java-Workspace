@@ -103,7 +103,7 @@ public class Floor {
 			}
 			
 			for (int i = startRow; i < startRow + height; i++){
-				for (int j = startColumn; i < startColumn + width; i++){
+				for (int j = startColumn; j < startColumn + width; j++){
 					if (this.floorGrid[i][j] == true){
 						return false;
 					}
