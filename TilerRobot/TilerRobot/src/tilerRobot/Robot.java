@@ -78,6 +78,8 @@ public class Robot {
 		
 		System.out.println("total number of black tiles: " + currentFloor.getTileCount());
 		
+		System.out.println("tried fitting 2x2 @ 2,2 coords: " + currentFloor.checkRectClear(2, 2, 2, 2));
+		
 		myInputScanner.close();
 	}
 
