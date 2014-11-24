@@ -48,9 +48,23 @@ public class Robot {
 	}
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		int floorWidth, floorLength;
+		int[] columnTileCount, rowTileCount;
+		Floor currentFloor;
+		
 		Scanner myInputScanner = new Scanner(System.in);
 		System.out.println("Welcome to the tiling robot");
+		System.out.println("Please enter floor M size below:");
+		floorWidth = myInputScanner.nextInt();
+		System.out.println("Please enter floor N size below:");
+		floorLength = myInputScanner.nextInt();
+		
+		currentFloor = new Floor(floorWidth, floorLength);
+		
+		columnTileCount = currentFloor.getColumnTileCount();
+		rowTileCount = currentFloor.getRowTileCount();
+		
+		myInputScanner.close();
 	}
 
 }

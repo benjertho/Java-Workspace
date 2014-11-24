@@ -57,7 +57,7 @@ public class Floor {
 		return 	rowTileCount;
 	}
 
-	public int[] getcolumnTileCount(){
+	public int[] getColumnTileCount(){
 		int[] columnTileCount = new int[this.columnCount];
 		for (int i = 0; i<this.columnCount; i++){
 			for (int j = 0; j<this.rowCount; j++){
