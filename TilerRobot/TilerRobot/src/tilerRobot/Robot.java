@@ -63,6 +63,8 @@ public class Robot {
 		
 		currentFloor.colorTileRect(2, 2, 3, 3);
 		
+		currentFloor.colorTile(0, 0, currentFloor.black);
+		
 		columnTileCount = currentFloor.getColumnTileCount();
 		rowTileCount = currentFloor.getRowTileCount();
 		

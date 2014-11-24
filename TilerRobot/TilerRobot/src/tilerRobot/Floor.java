@@ -8,6 +8,9 @@ public class Floor {
 	private int columnCount;
 	private int rowCount;
 	
+	public boolean black = true;
+	public boolean white = false;
+	
 	public Floor(){
 		this(10,10);
 	}
