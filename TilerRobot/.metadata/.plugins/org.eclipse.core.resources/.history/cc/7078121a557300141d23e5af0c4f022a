@@ -1,0 +1,28 @@
+package tilerRobot;
+
+public class Floor {
+	
+private int DIMENSIONMAX = 1000000;
+
+private boolean[][] floorGrid;
+
+public Floor(){
+	this(10,10);
+}
+
+public Floor(int mDimension, int nDimension){
+	if ((mDimension > 2) && (mDimension < DIMENSIONMAX) && (nDimension > 2) && (nDimension < DIMENSIONMAX)){
+		this.floorGrid = new boolean[mDimension][nDimension];
+	}
+	else{
+		this(10,10);
+	}
+}
+
+
+
+
+
+}
+
+
