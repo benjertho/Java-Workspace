@@ -1,16 +1,14 @@
 package tilerRobot;
 
 public class Floor {
-
 	private int DIMENSIONMAX = 1000000;
 
 	private boolean[][] floorGrid;
 	private int columnCount;
 	private int rowCount;
 
-	
-	public boolean black = true;
-	public boolean white = false;
+	public final boolean black = true;
+	public final boolean white = false;
 	
 	public Floor(){
 		this(10,10);
@@ -62,7 +60,6 @@ public class Floor {
 		return rowTileCount;
 	}
 
-
 	public int[] getColumnTileCount(){
 		int[] columnTileCount = new int[this.columnCount];
 		for (int i = 0; i < this.columnCount; i++) {
@@ -109,8 +106,8 @@ public class Floor {
 		}
 		return true;
 	}
+	
 	private boolean checkNeighbors(int row, int column, boolean topLeft, boolean topCenter, boolean topRight, boolean middleLeft, boolean middleRight, boolean bottomLeft, boolean bottomCenter, boolean bottomRight){
-		
 		if (row > 0){
 			if (column > 0){
 				if (topLeft != this.floorGrid[row - 1][column - 1]){
