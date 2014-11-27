@@ -1,6 +1,8 @@
 package tilerRobot;
 
 public class Floor {
+	private static volatile Floor floorInstance;
+
 	private int DIMENSIONMAX = 1000000;
 
 	private boolean[][] floorGrid;
@@ -10,11 +12,11 @@ public class Floor {
 	public final boolean black = true;
 	public final boolean white = false;
 	
-	public Floor(){
+	private Floor(){
 		this(10,10);
 	}
 
-	public Floor(int mDimension, int nDimension) {
+	private Floor(int mDimension, int nDimension) {
 		if ((mDimension > 2) && (mDimension < DIMENSIONMAX) && (nDimension > 2)
 				&& (nDimension < DIMENSIONMAX)) {
 			this.rowCount = mDimension;
@@ -31,6 +33,20 @@ public class Floor {
 		}
 	}
 
+	public static Floor getFloorInstance() {
+		return getFloorInstance(10, 10);
+	}
+	
+	public static Floor getFloorInstance(int rowCount, int columnCount) {
+		if (floorInstance == null) {
+			synchronized (Floor.class) {
+				if (floorInstance == null)
+					floorInstance = new Floor(rowCount, columnCount);
+			}
+		}
+		return floorInstance;
+	}
+	
 	public void colorTile(int row, int column, boolean color) {
 		if ((row <= this.rowCount) && (row > -1)
 				&& (column <= this.columnCount) && (column > -1)) {

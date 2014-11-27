@@ -62,7 +62,7 @@ public class Robot {
 		floorWidth = getIntegralValue(myInputScanner);
 		System.out.println("Please enter floor N size below:");
 		floorLength = getIntegralValue(myInputScanner);
-		currentFloor = new Floor(floorWidth, floorLength);
+		currentFloor = Floor.getFloorInstance(floorWidth, floorLength);
 		while(true){
 			System.out.println("Please choose an action from the list below:");
 			System.out.println("1. Color tile");
